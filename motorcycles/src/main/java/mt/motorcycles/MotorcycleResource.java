@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import mt.motorcycles.model.Motorcycle;
 import mt.motorcycles.service.MotorcycleService;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +20,7 @@ public class MotorcycleResource {
         List<Motorcycle> motorcycles = motorcycleService.findAllMotorcycles();
         return new ResponseEntity<>(motorcycles, HttpStatus.OK);
     }
-    @GetMapping("./find/{id}")
+    @GetMapping("/find/{id}")
     public ResponseEntity<Motorcycle> getMotorcycleById(@PathVariable("id") Long id){
         Motorcycle motorcycle = motorcycleService.findMotorcycleById(id);
         return new ResponseEntity<>(motorcycle, HttpStatus.OK);

@@ -1,5 +1,6 @@
 package mt.motorcycles.service;
 
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import mt.motorcycles.exception.VehicleNotFoundException;
 import mt.motorcycles.model.Motorcycle;
@@ -10,12 +11,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@Transactional
 @AllArgsConstructor(onConstructor_ = {@Autowired})
 public class MotorcycleService {
     private final MotorcycleRepo motorcycleRepo;
 
     public Motorcycle addMotorcycle(Motorcycle motorcycle){
-        motorcycle.setName("Honda CBR 125");
         return motorcycleRepo.save(motorcycle);
     }
 
