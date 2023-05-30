@@ -48,18 +48,8 @@ export class AppComponent implements OnInit {
     )
 
   }
-  public onUpdateMotorcycle(motorcycle: Motorcycle): void {
-    this.motorcycleService.updateMotorcycle(motorcycle).subscribe(
-      (response: Motorcycle) => {
-        console.log(response);
-        this.getMotorcycles();
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
-  }
 
+  
   public onDeleteMotorcycle(motorcycleId: number): void {
     this.motorcycleService.deleteMotorcycle(motorcycleId).subscribe(
       (response: void) => {
@@ -96,18 +86,6 @@ export class AppComponent implements OnInit {
     if (mode === 'add'){
       button.setAttribute('data-target', '#addMotorcycleModal')
     }
-    if (mode === 'edit'){
-      if(motorcycle!= null){
-        this.editMotorcycle = motorcycle;
-      }
-      button.setAttribute('data-target', '#editMotorcycleModal')
-    }
-    if (mode === 'delete'){
-      if(motorcycle!== null){
-        this.deleteMotorcycle =motorcycle;
-      }
-      button.setAttribute('data-target', '#deleteMotorcycleModal')
-    }  
     if (container !== null) {
       container.appendChild(button);
     }
