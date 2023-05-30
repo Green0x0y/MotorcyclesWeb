@@ -18,6 +18,6 @@ public class Motorcycle implements Serializable {
     private String type;
     private int capacity;
     private int productionYear;
-    private String imageURl;
+    private String imageUrl;
 
 }
